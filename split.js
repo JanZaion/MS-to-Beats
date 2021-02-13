@@ -39,11 +39,11 @@ function msg_float(f) {
 	if (parameter == "invalid parameter") {
 		bang(parameter);
 		} else if (oneBar >= currentValue) {
-			bang("1/"+(oneBar/currentValue).toFixed(2) + " of a bar");
+			bang(currentValue + " ms = 1/"+ (oneBar/currentValue).toFixed(2) + " of a bar");
 			} else if (oneBar < currentValue) {
 				var bars = Math.floor(currentValue/oneBar)
 				var rest = currentValue-(bars*oneBar);
-				bang(bars + " bar(bars) and " + "1/" + (oneBar/rest).toFixed(2) + " of a bar" )
+				bang(currentValue + " ms = " + bars + " bar (bars) and " + "1/" + (oneBar/rest).toFixed(2) + " of a bar" )
 				} 
 		
 }
