@@ -30,20 +30,22 @@ function msg_int(i) {
 	}		
 
 function msg_float(f) {
-	if (parameter == "ms") {
+	if (parameter === "ms") {
 		currentValue = f;
 		} else {
 			currentValue =f*1000;
 			}
 	
-	if (parameter == "invalid parameter") {
+	if (parameter === "invalid parameter") {
 		bang(parameter);
 		} else if (oneBar >= currentValue) {
 			bang(currentValue + " ms = 1/"+ (oneBar/currentValue).toFixed(2) + " of a bar");
 			} else if (oneBar < currentValue) {
 				var bars = Math.floor(currentValue/oneBar)
 				var rest = currentValue-(bars*oneBar);
-				bang(currentValue + " ms = " + bars + " bar (bars) and " + "1/" + (oneBar/rest).toFixed(2) + " of a bar" )
+				
+				if (bars === 1) {bang(currentValue + " ms = " + bars + " bar and " + "1/" + (oneBar/rest).toFixed(2) + " of a bar" )} else {bang(currentValue + " ms = " + bars + " bars and " + "1/" + (oneBar/rest).toFixed(2) + " of a bar" )}
+				
 				} 
 		
 }
